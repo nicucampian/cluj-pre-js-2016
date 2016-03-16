@@ -187,3 +187,14 @@ background-color: #ccffff;
   margin-bottom: 5%;
   margin-left: 20%;
 }
+.section_5 {
+background-color: #E5E5E5;
+padding-top: 5%;
+padding-left: 15%;
+}
+.section_5 > div{
+  display: inline-block;
+}
+.section_5_1{
+  vertical-align: top;
+}
