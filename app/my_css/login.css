@@ -15,7 +15,6 @@ body {
   border-radius: 10px;
 
 }
-
 .formular {
 }
 .formular input {
@@ -39,6 +38,11 @@ body {
 #bPass {
   width: 30%;
   margin-left: 5%;
+  border: 0px;
+  background-color: #0ABEFB;
+  color: white;
+  border-radius: 2px;
+  box-shadow:0px 4px 4px rgba(0,0,0,0.3);
 }
 
 .sign-up *{

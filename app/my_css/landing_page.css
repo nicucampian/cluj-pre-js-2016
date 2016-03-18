@@ -1,6 +1,4 @@
 body {
-background-color: red;
-
   margin: 0px;
   padding: 0px;
 }
@@ -43,6 +41,7 @@ body > div{
   background-color: #FFFFFF;
   text-align: center;
   width: 34%;
+  border-radius: 5px;
 }
 .section_1_2 div{
   width:90%;
@@ -59,23 +58,29 @@ margin: 0px 0px 3px 0px;
 
 }
 .form_signUp {
+  padding-top: 10px;
  width: 80%;
  text-align: center;
  margin-left: 10%;
 }
+
 .form_signUp > p {
-  text-align: left;
+  text-align: center;
   width: 70%;
 }
 
 #singInformButton {
+  border: 0px;
+  text-align: center;
    margin-top: 5%;
-   width: 35%;
+   width: 50%;
    height: 3%;
    background-color: #1E90FF;
    opacity: 0.8;
    color: white;
    text-align: center;
+   border-radius: 2px;
+   box-shadow:0px 4px 4px rgba(0,0,0,0.3);
 }
 .section_1_2 > p {
   font-size: 0.8em;
@@ -175,6 +180,11 @@ background-color: #ccffff;
   word-wrap: normal;
   width: 35%;
   margin-right: 0px;
+}
+#SignUpFree{
+ border: 0px;
+  box-shadow:0px 4px 4px rgba(0,0,0,0.3);
+  border-radius: 5px;
 }
 .section_4 button{
   text-align: center;
