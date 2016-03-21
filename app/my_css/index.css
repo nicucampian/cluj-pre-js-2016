@@ -95,7 +95,8 @@ body{
 }
 .index-section-2 {
   padding-top: 1px;
-  height: 40%;
+
+  height: 60%;
   background-color: #d9d9d9;
 
 }
@@ -103,11 +104,11 @@ body{
   opacity: 0.6;
   vertical-align: bottom;
   padding-left: 20%;
-  padding-top: 300px;
+  padding-top: 400px;
 }
 .section-absolute {
   z-index: 3;
-  width: 360px;
+  width: 80%;
   position: absolute;
   margin-top: -10%;
   margin-left: 10%;
@@ -125,7 +126,12 @@ body{
   box-shadow:0px 8px 6px rgba(0,0,0,0.3);
 
 }
-
+.individual-playlist {
+  display: inline-block;
+  width:360px;
+  margin-left: 10px;
+  margin-top: 60px;
+}
 .section-absolute > div:hover #individual-playlist-button {
   display: inline;
 }
@@ -161,7 +167,7 @@ body{
   position: fixed;
   width: 40%;
   height: 70%;
-  margin-top: -40%;
+  margin-top: -60%;
   margin-left:2%;
   float: left;
   background-color: white;
@@ -209,22 +215,23 @@ vertical-align: middle;
   margin-top: 5px;
   display: inline-block;
 }
+
 .table_songs {
+
   margin-top: 10px;
   padding: 0px;
-  margin: 10px;
   border-collapse:collapse;
   text-align: left;
   font-size: 12px;
 }
+
 .table_songs td {
-  width: 60%;
+  width: 100%;
 }
 
 #headTable {
   background-color: #d9d9d9;
 }
-
 .song-pic-text img {
   display: inline;
 }

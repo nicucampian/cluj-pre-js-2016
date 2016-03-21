@@ -7,7 +7,11 @@ function loginFunction(){
 var dataInformation = JSON.parse(playlistsJSON);
 var allPlaylist = document.getElementsByClassName('section-absolute')[0];
 var popUpPlaylist = document.getElementById('playlistAbsolut');
+
+
+
 generatePlaylists();
+
 
 function generatePlaylists(){
 
@@ -16,7 +20,6 @@ for (var i=0; i < dataInformation.length; i++)
       createElement(dataInformation[i]);
   }
 }
-
 function createElement(elem){
   var bigDiv = document.createElement('div');
   bigDiv.setAttribute("class","individual-playlist");
@@ -25,6 +28,7 @@ function createElement(elem){
   middleDiv.setAttribute("id","individual-playlist-button");
   //ADD HERE THE EVENT
   bigDiv.appendChild(middleDiv);
+
   middleDiv.addEventListener('click', function(){
     var title = elem.title;
     showPlaylist(title);
@@ -62,11 +66,11 @@ function showPlaylist(title_string){
     if(dataInformation[i].title == title_string)
     {
       constructIndividualPlaylist(dataInformation[i]);
-
     }
   }
   popUpPlaylist.style.display = 'inline';
 }
+
 function constructIndividualPlaylist(elem){
 
  removeChildsIfExits();
@@ -128,6 +132,7 @@ playListSongsGenerater(elem.songs,trImportant);
 }
 
 function playListSongsGenerater(songs,trImportant){
+
  for (var i=0; i < songs.length;i++)
  {
    var trInTable2 = document.createElement('tr');
@@ -163,6 +168,7 @@ function playListSongsGenerater(songs,trImportant){
     tdinTrTable4.appendChild(pintdInTable4);
  }
 }
+
 function removeChildsIfExits(){
   while (popUpPlaylist.firstChild) {
       popUpPlaylist.removeChild(popUpPlaylist.firstChild);

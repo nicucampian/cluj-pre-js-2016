@@ -39,7 +39,7 @@ function localStorageExistance(){
 }
 
 function checkExistance(){
-  
+
  console.log(users.length);
   for(var i=0; i < users.length;i++)
   {

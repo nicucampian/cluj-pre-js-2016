@@ -9,18 +9,22 @@
       <img src="../core/assets/logo-color.png">
      <h2> Sign into your ACME account</h2>
    </div>
-    <form action="" class="formular">
+    <form action="" class="formular" onsubmit="return checkForUser()">
+      <p id="message"> </p>
     <p>Email: </p>
-    <input type="email" name="email" value="" autofocus required><br>
+    <input #id="email-signIn" type="email" name="email" value="" autofocus required><br>
     <p>Password:</p>
-    <input type="password" name="passw" required> <br>
+    <input #id="password-signIn" type="password" name="passw" required> <br>
     <a href="" id="fPass" class="form_actions"> Forgot Password ? </a>
     <input id="bPass" type="submit" class="form_actions" value="Sign in">
-
   </form>
   <div class="sign-up">
     <p>Don't have an account? </p>
     <a href="landing_page.html" id="sUp">Sing up here</a>
     </div>
+    <script src="../core/data/users.js"></script>
+    <script src="my_jss/classes/User.js"></script>
+    <script src="my_jss/classes/AccountService.js"></script>
+    <script src="my_jss/login.js"></script>
   </body>
 </html>
