@@ -5,25 +5,23 @@ function AccountService() {
 };
 
 AccountService.prototype.signUp = function(name,email,password){
-  var bool = false;
+
 
   if(!usersClass.checkedByEmail(email)){
         usersClass.addNewUser(name,email,password);
-  }
-  else {
-      bool = true;
-  }
-  return bool;
+    return false;
+    }
+  return true;
 };
 
 AccountService.prototype.signIn = function (email,password){
 
-    var bool=false;
     if(usersClass.checkedByEmail(email) &&  usersClass.checkedByPassword(password))
     {
-        bool = true;
+        usersClass.setUserState(email , true);
+        return true;
     }
-    return bool;
+    return false;
 };
 
 //// FUNCTION TO CHECK LOCAL STORAGE

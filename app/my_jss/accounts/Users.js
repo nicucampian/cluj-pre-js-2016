@@ -5,41 +5,54 @@ function Users(){
  this.allUsers = this.getAllUsers();
 };
 
+//set user state ////
+
+Users.prototype.setUserState(email,state) {
+
+  var localUsers = this.allUsers;
+
+  for(var i=0; i < localUsers.length; i++){
+
+      if(localUsers.email === email)
+      {
+         localUsers.setLoginState(state);
+      }
+    }
+}
 // returns boolean
 Users.prototype.checkedByType = function(type,objectKey){
 
-  var bool = false;
 
-  var all_users = this.allUsers;
+  var localUsers = this.allUsers;
+   for(var i=0; i < localUsers.length; i++){
 
-   for(var i=0; i < all_users.length; i++){
-
-      var user = all_users[i];
+      var user = localUsers[i];
 
      if(user[type] === objectKey)
-      return bool = true;
+      return true;
    }
- return bool;
+ return false;
 };
 
 // returns array of all users//
 Users.prototype.getAllUsers = function () {
-  var local_users = [];
+  var localUsers = [];
   for (var i=0; i < jsonUsers.length;i++)
   {
       var person = jsonUsers[i];
-      local_users.push(this.createUser(person.userName,person.email,person.password));
+      localUsers.push(this.createUser(person.userName,person.email,person.password));
   };
-    return local_users;
+    return localUsers;
 }
-/// create object of type user/////
 
+/// create object of type user/////
 Users.prototype.createUser = function (name,email,password){
 
 return new User(name,email,password);
 
 };
 
+// push new user in all users;
 Users.prototype.addNewUser = function (name,email,password) {
 
     this.allUsers.push(this.createUser(name,email,password));

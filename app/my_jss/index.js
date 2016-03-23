@@ -8,8 +8,6 @@ var dataInformation = JSON.parse(playlistsJSON);
 var allPlaylist = document.getElementsByClassName('section-absolute')[0];
 var popUpPlaylist = document.getElementById('playlistAbsolut');
 
-
-
 generatePlaylists();
 
 
