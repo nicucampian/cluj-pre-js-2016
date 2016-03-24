@@ -1,8 +1,6 @@
-
-
 function AccountService() {
 
-};
+}
 
 AccountService.prototype.signUp = function(name,email,password){
 

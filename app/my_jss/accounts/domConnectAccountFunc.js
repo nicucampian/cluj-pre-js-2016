@@ -16,11 +16,10 @@ function checkForUser(){
       message.innerHTML = "Your email/password is wrong !";
       message.style.color = "red";
 
-    };
+    }
 
  return false;
-
-};
+}
 
 function createAccount(){
 
@@ -40,4 +39,4 @@ function createAccount(){
     message.style.color = "red";
   }
 return false;
-};
+}

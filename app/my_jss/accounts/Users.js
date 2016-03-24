@@ -1,13 +1,17 @@
 var jsonUsers = JSON.parse(usersJSON);
 
+var userData = new DataController();
+userData.setUrlLocation(usersJSON);
+userData.setSaveName("users");
+
 function Users(){
 
  this.allUsers = this.getAllUsers();
-};
+}
 
 //set user state ////
 
-Users.prototype.setUserState(email,state) {
+Users.prototype.setUserState = function(email,state){
 
   var localUsers = this.allUsers;
 
@@ -18,7 +22,7 @@ Users.prototype.setUserState(email,state) {
          localUsers.setLoginState(state);
       }
     }
-}
+};
 // returns boolean
 Users.prototype.checkedByType = function(type,objectKey){
 
@@ -36,14 +40,16 @@ Users.prototype.checkedByType = function(type,objectKey){
 
 // returns array of all users//
 Users.prototype.getAllUsers = function () {
-  var localUsers = [];
-  for (var i=0; i < jsonUsers.length;i++)
-  {
-      var person = jsonUsers[i];
-      localUsers.push(this.createUser(person.userName,person.email,person.password));
-  };
-    return localUsers;
-}
+
+  var thisOfUsers = this;
+
+  var mapFunction = function(val){
+
+      return  thisOfUsers.createUser(val.name, val.email, val.password);
+    };
+
+    return userData.returnData().map(mapFunction);
+};
 
 /// create object of type user/////
 Users.prototype.createUser = function (name,email,password){
