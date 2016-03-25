@@ -27,7 +27,7 @@ PlaylistsManager.prototype.createPlaylist = function(playlist){
 };
 PlaylistsManager.prototype.addPlaylist = function(newPlaylist){
 
-  this.allPlaylists.push(this.createPlaylist(newPlaylist));
+  this.allPlaylists.push(newPlaylist);
 
 };
 

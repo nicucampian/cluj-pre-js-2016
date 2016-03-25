@@ -1,5 +1,3 @@
-var jsonUsers = JSON.parse(usersJSON);
-
 var userData = new DataController();
 userData.setUrlLocation(usersJSON);
 userData.setSaveName("users");
@@ -8,47 +6,40 @@ function Users(){
 
  this.allUsers = this.getAllUsers();
 }
+// returns array of all users//
+Users.prototype.getAllUsers = function () {
+
+  var localUsersArray = [];
+  var thisOfUsers = this;
+
+   userData.returnData().forEach(function(val){
+      localUsersArray.push(thisOfUsers.createUser(val.name, val.email, val.password));
+   });
+
+    return localUsersArray;
+};
 
 //set user state ////
 
 Users.prototype.setUserState = function(email,state){
 
-  var localUsers = this.allUsers;
+  var searchUserByEmail = function(user){
 
-  for(var i=0; i < localUsers.length; i++){
-
-      if(localUsers.email === email)
+      if(user.email === email)
       {
-         localUsers.setLoginState(state);
+         user.setLoginState(state);
       }
-    }
+  };
+
+  this.allUsers.filter(searchUserByEmail);
 };
 // returns boolean
-Users.prototype.checkedByType = function(type,objectKey){
+Users.prototype.checkedByType = function(type,dataReceived){
 
-
-  var localUsers = this.allUsers;
-   for(var i=0; i < localUsers.length; i++){
-
-      var user = localUsers[i];
-
-     if(user[type] === objectKey)
-      return true;
-   }
- return false;
-};
-
-// returns array of all users//
-Users.prototype.getAllUsers = function () {
-
-  var thisOfUsers = this;
-
-  var mapFunction = function(val){
-
-      return  thisOfUsers.createUser(val.name, val.email, val.password);
-    };
-
-    return userData.returnData().map(mapFunction);
+  var searchUserByType = function(user){
+          return user[type] === dataReceived;
+  };
+  return this.allUsers.filter(searchUserByType).length > 0 ? true : false;
 };
 
 /// create object of type user/////
@@ -59,9 +50,9 @@ return new User(name,email,password);
 };
 
 // push new user in all users;
-Users.prototype.addNewUser = function (name,email,password) {
+Users.prototype.addNewUser = function (userObject) {
 
-    this.allUsers.push(this.createUser(name,email,password));
+    this.allUsers.push(userObject);
 };
 
 

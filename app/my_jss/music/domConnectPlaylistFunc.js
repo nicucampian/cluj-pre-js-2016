@@ -39,7 +39,7 @@ function renderPlaylist(objectToRender,parentObject){
 function renderSpecificPlaylistObjects(objectToRender) {
 
   var parentObjectRended = document.getElementById('playlistAbsolut');
-  parentObjectRended.style.display = "inline";
+  parentObjectRended.classList.add("playlistDisplayInline");
 
   var mapSongs = function(val){
 
@@ -67,13 +67,15 @@ function renderSpecificPlaylistObjects(objectToRender) {
       '     <th>LISTENED</th>'+
       '  </tr>'+
       '  <tr class="tr-second-in-table">'+
-            objectToRender.songs.map(mapSongs).reduce(reduceSong,"")+
+      '<tr>'+
+      objectToRender.songs.map(mapSongs).reduce(reduceSong,"")+
+        '</tr>'+
         '</tr>'+
     ' </table>';
 
     var closeButton = document.getElementsByClassName('playlist-top')[0];
     closeButton.addEventListener('click',function(){
-        parentObjectRended.style.display = "none";
+        parentObjectRended.classList.remove('playlistDisplayInline');
     });
 }
 

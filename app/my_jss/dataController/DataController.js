@@ -41,3 +41,16 @@ DataController.prototype.updateData = function(name) {
    localStorage.setItem(name, this.data);
 
 };
+
+
+//// FUNCTION TO CHECK LOCAL STORAGE
+
+function localStorageExistance(){
+  if(localStorage.getItem("users"))
+  {
+    users = localStorage.getItem("users");
+  }
+  else {
+    users = [];
+  }
+}

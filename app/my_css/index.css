@@ -172,6 +172,9 @@ body{
   display: none;
   background-color: white;
 }
+.playlistDisplayInline{
+ display: inline;
+}
 .playlist-top {
   padding-right: 5px;
   padding-top: 5px;
@@ -221,15 +224,13 @@ vertical-align: middle;
   border-collapse:collapse;
   text-align: left;
   font-size: 12px;
+  width: 80%;
 }
 
 .table_songs td {
   width: 100%;
 }
-.table_songs tbody{
-  overflow:scroll;
-}
-
+.table_songs
 #headTable {
   background-color: #d9d9d9;
 }

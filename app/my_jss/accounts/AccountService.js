@@ -22,16 +22,5 @@ AccountService.prototype.signIn = function (email,password){
     return false;
 };
 
-//// FUNCTION TO CHECK LOCAL STORAGE
-
-function localStorageExistance(){
-  if(localStorage.getItem("users"))
-  {
-    users = localStorage.getItem("users");
-  }
-  else {
-    users = [];
-  }
-};
 ///////
 var accountService = new AccountService();

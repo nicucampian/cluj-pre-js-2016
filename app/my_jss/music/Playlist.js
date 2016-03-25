@@ -26,5 +26,5 @@ Playlist.prototype.createSong = function(song){
 };
 
 Playlist.prototype.addSong = function(newSong){
-  this.songs.push(this.createSong(newSong));
+  this.songs.push(newSong);
 };
