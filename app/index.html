@@ -2,7 +2,6 @@
   <head>
 <link rel="stylesheet" type="text/css" href="my_css/index.css">
   </head>
-
   <body>
  <div class="index-section-1">
    <div id="logo" >
@@ -29,14 +28,60 @@
     <p>	&#169; 2016 ACME DIVISION. ALL RIGHTS RESERVED </p>
  </div>
   <div id="playlistAbsolut" class="playlist-absolute">
+        <script type ="text/template" id="template-PlaylistBig">
+              <div class="playlist-top"><a>CLOSE</a><img src="../core/assets/close-icon.png">
+             </div>
+                  <div class="playlist-main">
+                 <img src="<%= imageSmall %>">
+                    <div>
+                       <p>Playing from: </p>
+                    <h2><%= title %> : The remixes radio</h2>
+                   </div>
+                </div>
+                  <table class="table_songs">
+                <tr id="headTable">
+                  <th>SONGS</th>
+                    <th>LENGTH</th>
+                   <th>LISTENED</th>
+                    </tr>
+                   <tr class="tr-second-in-table">
+                   <tr id="where-to-render-template-Song">
+              </tr>
+
+              </tr>
+     </table>
+       </script>
+       <script type="text/template" id ="template-Song">
+           <tr >
+                    <td>
+                           <div class="song-pic-text">
+                           <img src=" <%= image %> ">
+                              <div>
+                             <h3><%= songTitle %></h3>
+                              <p>by <%= songAuthor %></p>
+                            </div>
+                           </div>
+                         </td>
+                         <td>
+                           <p><%= songLength %></p>
+                         </td>
+                        <td>
+                            <p><%= songListened %></p>
+                         </td>
+             </tr>
+         </script>
  </div>
- <script src="my_jss/libraries/jquery-1.12.2.min.js"> </script>
+  <script src="http://backbonejs.org/test/vendor/underscore.js"></script>
+  <script src="http://backbonejs.org/test/vendor/jquery.js"></script>
+  <script src="http://backbonejs.org/docs/js/jquery.lazyload.js"></script>
+  <script src="http://backbonejs.org/backbone.js"></script>
   <script src="../core/data/playlists.js"></script>
   <script src="my_jss/dataController/DataController.js"></script>
   <script src="my_jss/music/Song.js"></script>
+    <script src="my_jss/music/SongModel.js"></script>
   <script src="my_jss/music/Playlist.js"></script>
   <script src="my_jss/music/PlaylistsManager.js"></script>
-<script src="my_jss//music/domConnectPlaylistFunc.js"></script>
+<!-- <script src="my_jss//music/domConnectPlaylistFunc.js"></script> -->
 <script src="my_jss/index.js"></script>
   </body>
 </html>

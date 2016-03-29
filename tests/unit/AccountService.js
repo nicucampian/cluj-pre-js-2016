@@ -1,8 +1,10 @@
 describe('AccountService tests', function(){
+    var accountServiceTest;
   describe('--> SignUp tests', function(){
 
+
     beforeEach(function(){
-      var accountServiceTest = new AccountService();
+      accountServiceTest = new AccountService();
       });
 
     it('--> SignUp should return false when a valid account is passed', function(){

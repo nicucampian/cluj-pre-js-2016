@@ -1,7 +1,9 @@
 describe('User tests', function(){
 
+  var userObj;
+
   beforeEach(function(){
-      var userObj = new User("John","johndoe@gmail.com","johndoe12");
+      userObj = new User("John","johndoe@gmail.com","johndoe12");
     });
 
   it('getLoginState should return true setted with setLoginState',function (){

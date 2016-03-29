@@ -1,9 +1,12 @@
 describe('All users test -->',function(){
 
-      var allUsersTest = new Users();
-
+      var allUsersTest;
 
     describe('CheckByType tests',function(){
+
+      beforeEach(function(){
+         allUsersTest = new Users();
+        });
 
       it('CheckByType should return true if email verification exists in user list',function(){
         var apel = allUsersTest.checkedByType("email","kathycombs@quailcom.com");
@@ -28,9 +31,9 @@ describe('All users test -->',function(){
   describe('addNewUser tests',function(){
 
       it('addNewUser should return  a length + 1 of all users after adding', function(){
-        var count = allUsersTest.returnUsers();
+        var count = allUsersTest.returnUsers().length;
         allUsersTest.addNewUser("ion","ioncampian@gmail.com","blablabla");
-        expect(allUsersTest.returnUsers()).toEqual(count + 1);
+        expect(allUsersTest.returnUsers().length).toEqual(count + 1);
       });
   });
 

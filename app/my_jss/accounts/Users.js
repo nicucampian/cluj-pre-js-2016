@@ -18,7 +18,9 @@ Users.prototype.getAllUsers = function () {
 
     return localUsersArray;
 };
-
+Users.prototype.returnUsers = function() {
+  return this.allUsers;
+};
 //set user state ////
 
 Users.prototype.setUserState = function(email,state){
