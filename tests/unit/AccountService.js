@@ -1,21 +1,29 @@
 describe('AccountService tests', function(){
-  var accountService = new AccountService();
-
   describe('--> SignUp tests', function(){
-    it('--> SignUp false', function(){
-      expect(accountService.signUp("ion","iotiriac@gmail.com","alabala")).toEqual(false);
+
+    beforeEach(function(){
+      var accountServiceTest = new AccountService();
+      });
+
+    it('--> SignUp should return false when a valid account is passed', function(){
+      expect(accountServiceTest.signUp("ion","iotiriac@gmail.com","alabala")).toEqual(false);
     });
-    it('--> SignUp true', function(){
-      expect(accountService.signUp("combs","kathycombs@quailcom.com","alabala")).toEqual(true);
+
+
+    it('--> SignUp should return true when email account allready exits', function(){
+      expect(accountServiceTest.signUp("combs","kathycombs@quailcom.com","alabala")).toEqual(true);
     });
   });
 
   describe('--> signIn tests', function(){
-    it('--> signIn false', function(){
-      expect(accountService.signIn("iotiriac@gmail.com","alabala")).toEqual(false);
+
+    it('--> signIn should return false if user account email and password does not exits', function(){
+      expect(accountServiceTest.signIn("iotiriac@gmail.com","alabala")).toEqual(false);
     });
-    it('--> signIn true', function(){
-      expect(accountService.signIn("kathycombs@quailcom.com","orkman5951")).toEqual(true);
+
+
+    it('--> signIn should return true if user account email and password does exits', function(){
+      expect(accountServiceTest.signIn("kathycombs@quailcom.com","orkman5951")).toEqual(true);
     });
   });
 

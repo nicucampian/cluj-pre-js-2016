@@ -1,60 +1,61 @@
 describe('All users test -->',function(){
 
- var allUsersTest = new Users();
+      var allUsersTest = new Users();
 
-    describe('CheckByType',function(){
 
-      it('Check by type true ',function(){
+    describe('CheckByType tests',function(){
+
+      it('CheckByType should return true if email verification exists in user list',function(){
         var apel = allUsersTest.checkedByType("email","kathycombs@quailcom.com");
 
         expect(apel).toEqual(true);
       });
 
-        it('Check by type false ',function(){
+        it('CheckByType should return false if email verification does not exist in user list',function(){
           var apel = allUsersTest.checkedByType("email","kawadawdambs@quailcom.com");
           expect(apel).toBe(false);
         });
 
-        it('Check by type false ',function(){
+        it('CheckByType should return false if password verification does not exist in user list',function(){
           expect(allUsersTest.checkedByType("password","kathycombs@quailcom.com")).toEqual(false);
         });
 
-        it('Check by type true ',function(){
+        it('CheckByType should return true if password verification exists in user list',function(){
           expect(allUsersTest.checkedByType("password","orkman5951")).toEqual(true);
         });
     });
 
-  describe('addNewUser',function(){
+  describe('addNewUser tests',function(){
 
-      it('addNewUser increment', function(){
-        var count = allUsersTest.allUsers.length;
+      it('addNewUser should return  a length + 1 of all users after adding', function(){
+        var count = allUsersTest.returnUsers();
         allUsersTest.addNewUser("ion","ioncampian@gmail.com","blablabla");
-        expect(allUsersTest.allUsers.length).toEqual(count + 1);
+        expect(allUsersTest.returnUsers()).toEqual(count + 1);
       });
   });
 
-  describe('checkedByEmail',function(){
-      it('checkedByEmail true', function(){
+  describe('checkedByEmail tests',function(){
+      it('checkedByEmail should return true if email is send correctly to function CheckByType', function(){
       expect(allUsersTest.checkedByEmail("kathycombs@quailcom.com")).toEqual(true);
       });
-      it('checkedByEmail false', function(){
+      it('checkedByEmail should return false if email is send incorect to function CheckByType', function(){
       expect(allUsersTest.checkedByEmail("notexistinarray@quailcom.com")).toEqual(false);
       });
   });
-  describe('checkedByPassword',function(){
-      it('checkedByEmail true', function(){
+  describe('checkedByPassword tests',function(){
+      it('checkedByPassword should return true if password is send correctly to function CheckByType', function(){
         expect(allUsersTest.checkedByPassword("orkman5951")).toEqual(true);
         });
-        it('checkedByEmail false', function(){
+        it('checkedByPassword should return false if password is send incorect to function CheckByType', function(){
           expect(allUsersTest.checkedByPassword("asdwadwad")).toEqual(false);
           });
    });
-   describe('setUserState',function(){
-     it('set user state good',function(){
+   describe('setUserState tests',function(){
+     it('setUserState should return the state value set ',function(){
        var user = allUsersTest.createUser("Pop","popdoe@gmail.com","popdoe12");
        allUsersTest.addNewUser(user);
        allUsersTest.setUserState("popdoe@gmail.com",true);
-        expect(user.logged).toEqual(true);
+        expect(user.getLoginState()).toEqual(true);
      });
    });
 });

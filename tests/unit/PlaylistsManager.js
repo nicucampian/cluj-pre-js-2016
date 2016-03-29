@@ -1,6 +1,5 @@
 describe('Playlist tests', function(){
 
-//var
 var objSong1 = {};
 objSong1.image = "objectSong.image;";
 objSong1.songTitle ="bjectSong.songTitle";
@@ -32,18 +31,17 @@ var objectSingleTest = {};
 
   var playlistManagerTest = new PlaylistsManager();
 
-  it('Playlist addSong', function(){
+  it('Should return a songs length bigger with 1 if AddSong is called', function(){
     var count = singlePlaylist.songs.length;
     singlePlaylist.addSong(Song2);
     expect(singlePlaylist.songs.length).toEqual(count +1);
   });
 
-  it('PlaylistManager addPlaylist', function(){
+  it('Should return a playlist length bigger with 1 if addPlaylist is called', function(){
     var count = playlistManagerTest.allPlaylists.length;
     playlistManagerTest.addPlaylist(singlePlaylist);
     expect(playlistManagerTest.allPlaylists.length).toEqual(count +1);
 
   });
-//  playlistTest.allPlaylists = []
 
 });
