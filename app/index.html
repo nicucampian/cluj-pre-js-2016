@@ -27,61 +27,73 @@
     <div id="updateText"> </div>
     <p>	&#169; 2016 ACME DIVISION. ALL RIGHTS RESERVED </p>
  </div>
-  <div id="playlistAbsolut" class="playlist-absolute">
-        <script type ="text/template" id="template-PlaylistBig">
-              <div class="playlist-top"><a>CLOSE</a><img src="../core/assets/close-icon.png">
-             </div>
-                  <div class="playlist-main">
-                 <img src="<%= imageSmall %>">
-                    <div>
-                       <p>Playing from: </p>
-                    <h2><%= title %> : The remixes radio</h2>
-                   </div>
-                </div>
-                  <table class="table_songs">
-                <tr id="headTable">
-                  <th>SONGS</th>
-                    <th>LENGTH</th>
-                   <th>LISTENED</th>
-                    </tr>
-                   <tr class="tr-second-in-table">
-                   <tr id="where-to-render-template-Song">
-              </tr>
 
-              </tr>
-     </table>
-       </script>
-       <script type="text/template" id ="template-Song">
-           <tr >
-                    <td>
-                           <div class="song-pic-text">
-                           <img src=" <%= image %> ">
-                              <div>
-                             <h3><%= songTitle %></h3>
-                              <p>by <%= songAuthor %></p>
-                            </div>
-                           </div>
-                         </td>
-                         <td>
-                           <p><%= songLength %></p>
-                         </td>
-                        <td>
-                            <p><%= songListened %></p>
-                         </td>
-             </tr>
-         </script>
+ <div id="playlistAbsolut" class="playlist-absolute">
+
  </div>
+
+  <script type ="text/template" id="songs-table">
+      <thead id="headTable">
+        <tr>
+         <th>SONGS</th>
+         <th>LENGTH</th>
+         <th>LISTENED</th>
+        </tr>
+     </thead>
+     <tbody id="tbody" >
+     </tbody>
+  </script>
+
+ <script type ="text/template" id="template-playlist">
+ </script>
+<script type = "text/template" id="playlist-header">
+  <div class="playlist-top">
+    <a>CLOSE</a>
+    <img src="<%= imageSmall %>">
+  </div>
+  <div class="playlist-main">
+    <img src="" alt="Hopa">
+    <div>
+      <p>Playing from: </p>
+      <h2><%= title %> : The remixes radio</h2>
+    </div>
+  </div>
+</script>
+
+ <script type="text/template" id ="song-list-item">
+    <tr >
+       <td>
+          <div class="song-pic-text">
+         <img src="" alt="SongPicture">
+             <div>
+            <h3><%= title %></h3>
+             <p>by category </p>
+           </div>
+          </div>
+          </td>
+          <td>
+            <p><%= updated %></p>
+          </td>
+         <td>
+             <p><%= content %></p>
+          </td>
+      </tr>
+  </script>
+
   <script src="http://backbonejs.org/test/vendor/underscore.js"></script>
   <script src="http://backbonejs.org/test/vendor/jquery.js"></script>
   <script src="http://backbonejs.org/docs/js/jquery.lazyload.js"></script>
   <script src="http://backbonejs.org/backbone.js"></script>
-  <script src="../core/data/playlists.js"></script>
-  <script src="my_jss/dataController/DataController.js"></script>
-  <script src="my_jss/music/Song.js"></script>
-    <script src="my_jss/music/SongModel.js"></script>
-  <script src="my_jss/music/Playlist.js"></script>
-  <script src="my_jss/music/PlaylistsManager.js"></script>
-<!-- <script src="my_jss//music/domConnectPlaylistFunc.js"></script> -->
-<script src="my_jss/index.js"></script>
+  <script src="my_jss/music/Songs/SongModel.js"></script>
+  <script src="my_jss/music/Songs/SongCollection.js"></script>
+  <script src="my_jss/music/Songs/SongListItemView.js"></script>
+  <script src="my_jss/music/Songs/SongsTableView.js"></script>
+  <script src="my_jss/music/Songs/PlaylistModel.js"></script>
+  <script src="my_jss/music/Songs/PlaylistHeaderModel.js"></script>
+  <script src="my_jss/music/Songs/PlaylistHeaderView.js"></script>
+  <script src="my_jss/music/Songs/PlaylistView.js"></script>
+  <script src="my_jss/index.js"></script>
   </body>
+
+
 </html>
