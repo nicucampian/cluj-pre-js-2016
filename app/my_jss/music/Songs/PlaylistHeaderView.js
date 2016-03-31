@@ -1,17 +1,19 @@
-var PlaylistHeaderView = Backbone.View.extend({
+const PlaylistHeaderView = Backbone.View.extend({
   className: 'playlist-header',
-  template : function(){
-    var templateText = document.querySelector('script#'+ this.className).innerText;
-    var compiled = _.template(templateText);
+  template() {
+    const templateText = document.querySelector(`script#${this.className}`).innerText;
+    const compiled = _.template(templateText);
     return compiled.apply(this, arguments);
   },
-  events : {
-      "click .playlist-top" : "removePlaylist"
+  events: {
+    'click .playlist-top': 'removePlaylist',
   },
-  removePlaylist : function(){
-     this.destroy();
+  removePlaylist() {
+    this.trigger('destroy');
   },
-  render : function(){
+  render() {
     this.$el.html(this.template(this.model.attributes));
-  }
+  },
 });
+
+export { PlaylistHeaderView };

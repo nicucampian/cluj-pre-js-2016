@@ -18,3 +18,4 @@ else
 User.prototype.getLoginState = function () {
   return this.logged;
 };
+export { User };
