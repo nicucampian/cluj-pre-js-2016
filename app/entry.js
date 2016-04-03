@@ -1,1 +1,1 @@
-import { Index } from './my_jss/index.js';
+import { Index } from './my_js/index.js';

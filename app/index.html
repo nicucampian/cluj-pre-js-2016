@@ -3,7 +3,21 @@
 <link rel="stylesheet" type="text/css" href="my_css/index.css">
   </head>
   <body>
- <div class="index-section-1">
+  <div id="account-section">
+  </div>
+
+  <div class="section-absolute">
+  </div>
+  <div id="credits-section">
+  </div>
+  <div id="playlistAbsolut" class="playlist-absolute">
+  </div>
+
+ <script type="text/template" class="index-section-2">
+    <div id="updateText"> </div>
+    <p>	&#169; 2016 ACME DIVISION. ALL RIGHTS RESERVED </p>
+ </script>
+ <script type ="text/template"  class="index-section-1">
    <div id="logo" >
      <img src="../core/assets/logo-top.png">
    </div>
@@ -13,25 +27,24 @@
        <input type="text" placeholder="Search">
      </div>
      <h2>Ready to listen to endless music on your favorite device ?</h2>
-      <button type="button" onclick="loginFunction()">JOIN NOW</button>
+      <button id="join-now-button" type="button">JOIN NOW</button>
       <h1 id="bringInfo"> Epic and debauched party mixes </h1>
    </div>
    <div class="index-section-1-2">
-       <a href="login.html"> Sign In </a>
+       <button id="sign-in-button" type="button"> Sign In </button>
    </div>
- </div>
-<div class="section-absolute">
-
-</div>
- <div class="index-section-2">
-    <div id="updateText"> </div>
-    <p>	&#169; 2016 ACME DIVISION. ALL RIGHTS RESERVED </p>
- </div>
-
- <div id="playlistAbsolut" class="playlist-absolute">
-
- </div>
-
+ </script>
+<script type ="text/template" id="playlists-container">
+  <div class="individual-playlist">
+    <div class="individual-playlist-button">
+      <img src="../core/assets/play-icon.png">
+      <p>Explore Playlist</p>
+    </div>
+    <img src=" objectToRender.imageLarge +">
+    <h3>objectToRender.title+</h3>
+     <p> objectToRender.description+</p>
+  </div>
+</script>
   <script type ="text/template" id="songs-table">
       <thead id="headTable">
         <tr>

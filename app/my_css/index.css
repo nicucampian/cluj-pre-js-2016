@@ -47,20 +47,20 @@ body{
   vertical-align: top;
   text-align: center;
 }
-.index-section-1-2 a{
-  height:100%;
-  width: 100%;
-
+.index-section-1-2 button{
+  height:7%;
+  width: 40%;
+  border: 0px;
   box-shadow:0px 4px 4px rgba(0,0,0,0.3);
   background-color: #0ABEFB;
   color: white;
   font-weight: bold;
-  font-size: 1.6em;
+  font-size: 1.3em;
   padding: 5px 10px 5px 10px;
   text-decoration: none;
   border-radius: 2px;
 }
-.index-section-1-2 a:hover{
+.index-section-1-2 button:hover{
  cursor: pointer;
 }
 #searchBlock {
@@ -132,7 +132,7 @@ body{
   display: inline-block;
   width:360px;
 }
-.section-absolute > div:hover #individual-playlist-button {
+.section-absolute > div:hover .individual-playlist-button {
   display: inline;
 }
 
@@ -143,10 +143,10 @@ body{
     padding-left: 5%;
     opacity: 0.7;
 }
-#individual-playlist-button:hover {
+.individual-playlist-button:hover {
   cursor: pointer;
 }
-#individual-playlist-button {
+.individual-playlist-button {
   user-select: none;
   padding: 5px;
   margin-left: 110px;
@@ -155,7 +155,7 @@ body{
   position: absolute;
   display: none;
 }
-#individual-playlist-button > p{
+.individual-playlist-button > p{
   margin: 0px;
   padding: 0px;
   color:white;

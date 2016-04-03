@@ -19,7 +19,7 @@ function renderPlaylist(objectToRender,parentObject){
 
   smallDiv.innerHTML =
   '<div class="individual-playlist">'+
-      ' <div id="individual-playlist-button">'+
+      ' <div class="individual-playlist-button">'+
           '<img src="../core/assets/play-icon.png">'+
           '<p>Explore Playlist</p>'+
       ' </div> '+

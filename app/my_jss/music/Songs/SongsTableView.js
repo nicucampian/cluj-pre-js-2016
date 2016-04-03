@@ -3,14 +3,12 @@ import { SongListItemView } from './SongListItemView.js';
 const SongsTableView = Backbone.View.extend({
   className: 'songs-table',
   tagName: 'table',
-  _nestedSongs: [],
   template() {
     const templateText = document.querySelector(`script#${this.className}`).innerText;
     const compiled = _.template(templateText);
     return compiled.apply(this, arguments);
   },
   _renderNestedView(view, el){
-    this._nestedSongs.push(view);
     this.$el.append(view.el.innerHTML);
   },
   render() {

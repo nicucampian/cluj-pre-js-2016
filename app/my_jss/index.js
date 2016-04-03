@@ -1,38 +1,44 @@
-import { PlaylistView } from './music/Songs/PlaylistView.js';
-import { PlaylistModel } from './music/Songs/PlaylistModel.js';
 
-function loginFunction(){
-  window.location.href = 'landing_page.html';
-}
+import { IndividualPlaylistCollection } from './music/Playlists/IndividualPlaylistCollection.js';
+import { AllPlaylistsView } from './music/Playlists/AllPlaylistsView.js';
+import { AccountView } from './accounts/AccountsComponent/AccountView.js';
 
-function startRenderPlaylist(data) {
-  const modelP = new PlaylistModel();
-  modelP.set(data[0]);
-  const playlistView = new PlaylistView({
-    el: document.getElementById('playlistAbsolut'),
-    model: modelP,
+renderTopSection() {
+ // question: Search functionality should be in playlist component ? (because data is there, and to not make another request ?);
+  const accountView = new AccountView({
+    el: document.getElementById('id')('account-section');
   });
+  accountView.render();
+}
+renderTopSection();
 
-  playlistView.render();
+//
+// renderBottomSection(){
+//   const creditsSection = new CreditsView({
+//     el: document.getElementById('credits-section');
+//   });
+
+  creditsSection.render();
 }
 
 $.ajax( "http://localhost:3000/playlists")
   .done(function(data) {
 
-  // startRenderPlaylistsContainer(data);
-    startRenderPlaylist(data);
+   startRenderPlaylistsContainer(data);
   })
   .fail(function() {
   });
- function startRenderPlaylistsContainer(data) {
-  const model = new PlaylistsContainerModel();
-  model.data = data;
 
-  var containerPlaylistsView = new containerPlaylistsView({
+// allPlaylists
+ function startRenderPlaylistsContainer(data) {
+
+   var playlistCollection = new IndividualPlaylistCollection();
+   playlistCollection.set(data);
+
+  var allPlaylistsView = new AllPlaylistsView({
     el : document.getElementsByClassName('section-absolute')[0],
-    model : model
+    collection : playlistCollection,
   });
 
-  containerPlaylistsView.render();
-// will be called on click and send data
+  allPlaylistsView.render();
  }
