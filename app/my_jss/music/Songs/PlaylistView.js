@@ -25,7 +25,6 @@ const PlaylistView = Backbone.View.extend({
     playlistHeaderView.render();
     this.$el.append(playlistHeaderView.el);
 
-    
     songsC.set(this.model.attributes.songs);
     const songsTable = new SongsTableView({
       collection: songsC,

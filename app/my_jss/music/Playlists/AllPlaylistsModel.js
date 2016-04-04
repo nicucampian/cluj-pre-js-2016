@@ -1,5 +1,5 @@
-var AllPlaylistsModel = Backbone.Model.extend({
+const AllPlaylistsModel = Backbone.Model.extend({
 
 });
 
-export { AllPlaylistsModel }; 
+export { AllPlaylistsModel };

@@ -3,14 +3,13 @@ import { PlaylistView } from '../Songs/PlaylistView.js';
 import { PlaylistModel } from '../Songs/PlaylistModel.js';
 
 const AllPlaylistsView = Backbone.View.extend({
-  _renderNestedView(view,el) => {
-  this.$el.append(view.el.innerHTML);
+  _renderNestedView(view, el) {
+    this.$el.append(view.el.innerHTML);
   },
-  _renderPlaylistView(data){
+  _renderPlaylistView(data) {
     const modelP = new PlaylistModel();
     modelP.set(data);
-
-    const playlistViewBig = new playlistViewBig({
+    const playlistViewBig = new PlaylistView({
       el: document.getElementById('playlistAbsolut'),
       model: modelP,
     });
@@ -18,21 +17,19 @@ const AllPlaylistsView = Backbone.View.extend({
     playlistViewBig.render();
   },
   render() {
+    this.collection.models.forEach((playlistModel) => {
+      const playlistViewSmall = new IndividualPlaylistView({
+        model: playlistModel,
+      });
 
-    const self = this;
-    this.collection.models.forEach(function renderIndividualPlaylist(playlistModel){
-    const playlistViewSmall = new IndividualPlaylistView({
-          model : playlistModel,
-        });
+      playlistViewSmall.render();
+      this._renderNestedView(playlistViewSmall, this.$el);
 
-    playlistViewSmall.render();
-    self._renderNestedView(playlistViewSmall,self.$el);
+      this.listenTo(playlistViewSmall, 'playlist:open', () => {
+      });
+    });
 
-    this.listenTo(playlistViewSmall,'openPlaylist', _renderPlaylistView(playlistViewSmall));
-   });
-
-   return this;
- },
+    return this;
+  },
 });
-
 export { AllPlaylistsView };
