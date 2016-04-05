@@ -15,9 +15,10 @@ const PlaylistView = Backbone.View.extend({
     const playlistHeaderView = new PlaylistHeaderView({
       model: playlistHeaderModel,
     });
-    const songsC = new SongCollection();
+
 
     this.$el.html(this.template(this.model.attributes));
+
     playlistHeaderModel.set({
       imageSmall: this.model.attributes.imageSmall,
       title: this.model.attributes.title,
@@ -25,15 +26,20 @@ const PlaylistView = Backbone.View.extend({
     playlistHeaderView.render();
     this.$el.append(playlistHeaderView.el);
 
+    const songsC = new SongCollection();
     songsC.set(this.model.attributes.songs);
+
     const songsTable = new SongsTableView({
       collection: songsC,
     });
 
     songsTable.render();
     this.$el.append(songsTable.el);
-    this.listenTo(playlistHeaderView, 'destroy', () => {
-      this.remove();
+
+    this.listenTo(playlistHeaderView, 'change:close', () => {
+      playlistHeaderView.remove();
+      songsTable.remove();
+      // debugger;
     });
   },
 });

@@ -1,4 +1,4 @@
-import  { AccountModel } from './AccountModel.js';
+import  { UserModel } from './UserModel.js';
 
 const LoginView = Backbone.View.extend({
   className: 'login-template',
@@ -37,7 +37,7 @@ const LoginView = Backbone.View.extend({
         'X-Token': token,
       },
     }).done(function(result){
-      console.log(AccountModel.getInstance());
+
     });
   },
   render() {

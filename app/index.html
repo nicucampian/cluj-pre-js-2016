@@ -3,20 +3,7 @@
 <link rel="stylesheet" type="text/css" href="my_css/index.css">
   </head>
   <body>
-    <div id="signup-page">
 
-    </div>
-    <div id="login-section">
-
-    </div>
-  <div id="top-section">
-  </div>
-  <div class="section-absolute">
-  </div>
-  <div id="credits-section">
-  </div>
-  <div id="playlistAbsolut" class="playlist-absolute">
-  </div>
   <!-- SCRIPTS : -->
   <script type ="text/template" id="login-template">
     <div class="content">
@@ -56,6 +43,7 @@
        <button id="sign-in-button" type="button"> Sign In </button>
    </div>
  </script>
+
 <script type ="text/template" id="playlists-container">
   <div class="individual-playlist">
     <button type="button" class="individual-playlist-button">
@@ -67,6 +55,7 @@
     <p><%= description %></p>
   </div>
 </script>
+
   <script type ="text/template" id="songs-table">
       <thead id="headTable">
         <tr>
@@ -84,10 +73,10 @@
 <script type = "text/template" id="playlist-header">
   <div class="playlist-top">
     <a>CLOSE</a>
-    <img src="<%= imageSmall %>">
+    <img src="../core/assets/close-icon.png">
   </div>
   <div class="playlist-main">
-    <img src="" alt="Hopa">
+    <img src="<%= imageSmall %>" alt="">
     <div>
       <p>Playing from: </p>
       <h2><%= title %> : The remixes radio</h2>
@@ -99,18 +88,18 @@
     <tr >
        <td>
           <div class="song-pic-text">
-         <img src="" alt="SongPicture">
+         <img src="<%= gsx$image.$t %>" alt="SongPicture">
              <div>
-            <h3><%= title %></h3>
-             <p>by category </p>
+            <h3><%= gsx$name.$t %></h3>
+             <p>by gsx$releasedate.$t </p>
            </div>
           </div>
           </td>
           <td>
-            <p><%= updated %></p>
+            <p><%= gsx$length.$t %></p>
           </td>
          <td>
-             <p><%= content %></p>
+             <p><%= gsx$track.$t  %></p>
           </td>
       </tr>
   </script>

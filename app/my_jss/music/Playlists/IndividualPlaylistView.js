@@ -1,3 +1,5 @@
+import { PlaylistView } from '../Songs/PlaylistView.js';
+import { PlaylistModel } from '../Songs/PlaylistModel.js';
 
 const IndividualPlaylistView = Backbone.View.extend({
   className: 'playlists-container',
@@ -6,8 +8,12 @@ const IndividualPlaylistView = Backbone.View.extend({
     const compiled = _.template(templateText);
     return compiled.apply(this, arguments);
   },
-  _handlePlaylistOpen() {
-    this.trigger('playlist:open');
+  _renderPlaylistView(data) {
+    const playlistViewBig = new PlaylistView({
+      el: document.getElementById('playlistAbsolut'),
+      model: data,
+    });
+    playlistViewBig.render();
   },
   render() {
     this.$el.html(this.template(this.model.attributes));
@@ -15,6 +21,9 @@ const IndividualPlaylistView = Backbone.View.extend({
   },
   events: {
     'click .individual-playlist-button': '_handlePlaylistOpen',
+  },
+  _handlePlaylistOpen() {
+    this._renderPlaylistView(this.model);
   },
 });
 

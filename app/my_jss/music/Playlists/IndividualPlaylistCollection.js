@@ -6,6 +6,12 @@ const IndividualPlaylistCollection = Backbone.Collection.extend({
   parse(response) {
     return response;
   },
+  safeFetch() {
+    if (this.length > 0) {
+      return Promise.resolve();
+    }
+    return this.fetch();
+  },
 });
 
 export { IndividualPlaylistCollection };

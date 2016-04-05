@@ -1,34 +1,23 @@
 import { IndividualPlaylistView } from './IndividualPlaylistView';
-import { PlaylistView } from '../Songs/PlaylistView.js';
-import { PlaylistModel } from '../Songs/PlaylistModel.js';
 
 const AllPlaylistsView = Backbone.View.extend({
-  _renderNestedView(view, el) {
-    this.$el.append(view.el.innerHTML);
-  },
-  _renderPlaylistView(data) {
-    const modelP = new PlaylistModel();
-    modelP.set(data);
-    const playlistViewBig = new PlaylistView({
-      el: document.getElementById('playlistAbsolut'),
-      model: modelP,
-    });
-
-    playlistViewBig.render();
+  _renderNestedView(view) {
+    this.$el.append(view.innerHTML);
   },
   render() {
+    let smallViewCountId = 0;
     this.collection.models.forEach((playlistModel) => {
+      smallViewCountId++;
+      const divPlaylistParent = document.createElement('div');
+      divPlaylistParent.setAttribute('id', `playlist-${smallViewCountId}`);
       const playlistViewSmall = new IndividualPlaylistView({
+        el: divPlaylistParent,
         model: playlistModel,
       });
-
-      playlistViewSmall.render();
-      this._renderNestedView(playlistViewSmall, this.$el);
-
-      this.listenTo(playlistViewSmall, 'playlist:open', () => {
-      });
+      playlistViewSmall.render()
+      divPlaylistParent.innerHTML = playlistViewSmall.el.innerHTML;
+      this.$el.append(divPlaylistParent);
     });
-
     return this;
   },
 });

@@ -9,7 +9,7 @@ const PlaylistHeaderView = Backbone.View.extend({
     'click .playlist-top': '_removePlaylist',
   },
   _removePlaylist() {
-    this.trigger('destroy');
+    this.trigger('change:close');
   },
   render() {
     this.$el.html(this.template(this.model.attributes));

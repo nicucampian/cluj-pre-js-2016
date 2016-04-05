@@ -131,6 +131,7 @@ body{
     border-radius: 5px;
   background-color: white;
   margin-left: 15px;
+    display: inline-block;
   transition:
   	all 0.7s ease-in-out;
 }
@@ -145,7 +146,6 @@ body{
 }
 .section-absolute > div:hover .individual-playlist-button {
   display: inline;
-
 }
 
 .section-absolute h3{
@@ -159,6 +159,7 @@ body{
   cursor: pointer;
 }
 .individual-playlist-button {
+  z-index: 10;
   user-select: none;
   padding: 5px;
   margin-left: 110px;
@@ -176,9 +177,9 @@ body{
   float: right;
 }
 .playlist-absolute {
-  z-index: 4;
+  z-index: 10000;
+  margin-left: 5%;
   position: fixed;
-  margin-top: -60%;
   float: left;
 }
 .playlistDisplayInline{
@@ -189,8 +190,8 @@ body{
   padding-top: 5px;
   border: 0px;
   color: blue;
-  text-align: center;
-  float: right;
+  text-align: right;
+  background-color: white;
 }
 .playlist-top:hover{
   cursor: pointer;
@@ -203,13 +204,11 @@ font-weight: bold;
 text-decoration:none;
 margin: 0px;
 padding: 0px;
-vertical-align: middle;
 }
 .playlist-top img{
   vertical-align: middle;
 }
 .playlist-main {
-  margin-top: 17px;
   background-color:#DBDAD8;
 }
 .playlist-main  div{
@@ -227,23 +226,26 @@ vertical-align: middle;
   display: inline-block;
 }
 
-.table_songs {
-  margin-top: 10px;
-  padding: 0px;
+.songs-table {
+  display: block;
+  height: 80%;
   border-collapse:collapse;
   text-align: left;
   font-size: 12px;
-  width: 80%;
+  background-color: white;
 }
 
-.table_songs td {
-  width: 100%;
+.songs-table tbody {
+  padding: 10px;
 }
-.table_songs
+
 #headTable {
+  padding: 10px;
   background-color: #d9d9d9;
 }
 .song-pic-text img {
+  width: 20%;
+  height: 15%;
   display: inline;
 }
 .song-pic-text > div {
@@ -260,10 +262,6 @@ vertical-align: middle;
 .song-pic-text > div > p{
   margin-top: 0px;
   opacity: 0.7;
-}
-.tr-second-in-table {
-  height: auto;
-  overflow: scroll;
 }
 
   /*LOGIN TEMPLATE*/

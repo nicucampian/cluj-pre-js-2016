@@ -10,16 +10,13 @@ const TopView = Backbone.View.extend({
     'click #sign-in-button': '_signIn',
   },
   _joinNow() {
-    window.location.href = 'landing_page.html';
+    window.location.href = '#signup';
   },
   _signIn() {
-    window.location.href = 'login.html';
+    window.location.href = '#login';
   },
   render() {
     this.$el.html(this.template());
-
-    // this.listenTo(AccountModel._getInstance(),'token-real',this.)
-    // accountSection to be added
 
     return this;
   },

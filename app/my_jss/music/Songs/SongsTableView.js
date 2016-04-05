@@ -8,19 +8,20 @@ const SongsTableView = Backbone.View.extend({
     const compiled = _.template(templateText);
     return compiled.apply(this, arguments);
   },
-  _renderNestedView(view, el){
-    this.$el.append(view.el.innerHTML);
+  _renderNestedView(view, el) {
+    $(el).append(view.el.innerHTML);
   },
   render() {
     this.$el.html(this.template());
+
     const that = this;
     this.collection.models.forEach(function renderCollection(modelS){
       const songView = new SongListItemView({
         model: modelS,
       });
-
+      
       songView.render();
-      that._renderNestedView(songView, document.querySelector('tbody'));
+      that._renderNestedView(songView, that.el.querySelector('tbody'));
     });
     return this;
   },
