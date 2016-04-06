@@ -1,5 +1,4 @@
 
-
 body{
   height: 100%;
   margin: 0px;
@@ -179,6 +178,7 @@ body{
 .playlist-absolute {
   z-index: 10000;
   margin-left: 5%;
+  margin-top: -20%;
   position: fixed;
   float: left;
 }

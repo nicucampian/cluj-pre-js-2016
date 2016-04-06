@@ -15,30 +15,8 @@ const LoginView = Backbone.View.extend({
       username: document.getElementById('email_signIn').value,
       password: document.getElementById('password_signIn').value,
     };
-    const self = this;
-    $.ajax( {
-      url: 'http://localhost:3000/auth',
-      type: 'POST',
-      data: JSON.stringify(account),
-      contentType: 'application/json',
-    }).done(function(result){
-      document.getElementById('message').innerHTML = 'You are logged in';
-      self._createModelByToken(result);
-    })
-    .fail(function() {
-      document.getElementById('message').innerHTML = 'The user does not exist, Join Now !';
-    });
+    this.model._authentication(account);
     event.preventDefault();
-  },
-  _createModelByToken(token) {
-    $.ajax( {
-      url: 'http://localhost:3000/preferences',
-      headers: {
-        'X-Token': token,
-      },
-    }).done(function(result){
-
-    });
   },
   render() {
     this.$el.html(this.template());

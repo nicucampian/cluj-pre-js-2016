@@ -24,7 +24,7 @@ const SignUpView = Backbone.View.extend({
       type: 'POST',
       data: JSON.stringify(accountNewUser),
       contentType: 'application/json',
-    }).done(function(result){
+    }).done(function(result) {
       document.getElementById('textFormMessage').innerHTML = result;
     })
     .fail(function() {

@@ -3,7 +3,7 @@ import { SignUpView } from './LoginFunctionality/SignUpView.js';
 import { FirstPageView } from './FirstPageView';
 
 const PageRouter = Backbone.Router.extend({
-  initialize(){
+  initialize() {
   },
   routes: {
     playlists: 'showPlaylists',
@@ -12,22 +12,21 @@ const PageRouter = Backbone.Router.extend({
     '': 'showPlaylists',
   },
   defaultState() {
-    console.log("APEL");
   },
   showPlaylists() {
-
+    const self = this;
     this.playlistsCollection.safeFetch()
     .done(() => {
       const firstPageView = new FirstPageView({
         el: document.getElementsByTagName('body'),
         collection: this.playlistsCollection,
+        userModel: self.userModel,
       });
-      debugger;
       firstPageView.render();
     });
   },
-  setUser(user) {
-    this.user = user;
+  setUser(userModel) {
+    this.userModel = userModel;
   },
   setPlaylists(playlistsCollection) {
     this.playlistsCollection = playlistsCollection;
@@ -35,6 +34,7 @@ const PageRouter = Backbone.Router.extend({
   loginPage() {
     const loginView = new LoginView({
       el: document.getElementsByTagName('body'),
+      model: this.userModel,
     });
     loginView.render();
   },
